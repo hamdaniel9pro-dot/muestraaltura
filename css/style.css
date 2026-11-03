@@ -572,6 +572,9 @@ main { position: relative; }
   width: 100%;
   -webkit-appearance: none;
   appearance: none;
+  /* Evita que Chrome/Safari pinten los desplegables nativos (opciones,
+     selector de fecha) con los colores claros de su esquema por defecto. */
+  color-scheme: dark;
 }
 
 .form-group select {
@@ -579,6 +582,17 @@ main { position: relative; }
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 34px;
+}
+
+/* Opciones del desplegable: fondo oscuro y texto claro (Chrome ignora
+   el "background" del <select> para la lista de opciones). */
+.form-group select option {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.form-group select option:disabled {
+  color: var(--ink-faint);
 }
 
 .form-group select:disabled {
