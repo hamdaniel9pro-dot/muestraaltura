@@ -61,7 +61,12 @@ h1, h2, h3 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
 }
 
 /* ===== Banner de muestra ===== */
@@ -111,9 +116,15 @@ h1, h2, h3 {
   justify-content: space-between;
   padding: 20px clamp(20px, 5vw, 48px);
   pointer-events: none;
+  transition: transform 0.45s var(--ease);
 }
 
 .site-header > * { pointer-events: auto; }
+
+/* Se oculta al bajar y reaparece al subir */
+.site-header.is-hidden-nav {
+  transform: translateY(-130%);
+}
 
 .brand {
   display: flex;
@@ -201,7 +212,7 @@ main { position: relative; }
 
 .chapter-bg {
   position: absolute;
-  inset: -8% 0;
+  inset: -16% 0;
   z-index: -2;
   will-change: transform;
 }
@@ -211,6 +222,32 @@ main { position: relative; }
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+/* Ken Burns: zoom lento sobre la foto del capítulo visible */
+@media (prefers-reduced-motion: no-preference) {
+  .chapter.is-visible .chapter-bg img {
+    animation: kenburns 18s linear forwards;
+  }
+
+  /* Portada: la imagen aparece con un fundido desde negro y luego empieza el zoom */
+  .chapter-intro.is-visible .chapter-bg img {
+    animation:
+      introImageReveal 1.8s var(--ease) both,
+      kenburns 18s linear 1.8s forwards;
+  }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes introImageReveal {
+  from { opacity: 0; filter: brightness(0); }
+  to { opacity: 1; filter: brightness(1); }
 }
 
 .chapter-scrim {
@@ -230,15 +267,32 @@ main { position: relative; }
   position: relative;
   width: 100%;
   padding: 0 clamp(20px, 7vw, 90px) clamp(72px, 11vh, 120px);
+}
+
+/* Aparición escalonada, línea a línea: fundido + ligero desplazamiento hacia arriba */
+.chapter-content > * {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(22px);
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
 }
 
-.chapter.is-visible .chapter-content {
+.chapter.is-visible .chapter-content > * {
   opacity: 1;
   transform: translateY(0);
 }
+
+.chapter-content > *:nth-child(1) { transition-delay: 0.05s; }
+.chapter-content > *:nth-child(2) { transition-delay: 0.16s; }
+.chapter-content > *:nth-child(3) { transition-delay: 0.27s; }
+.chapter-content > *:nth-child(4) { transition-delay: 0.38s; }
+.chapter-content > *:nth-child(5) { transition-delay: 0.49s; }
+.chapter-content > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Portada: el título sube con retraso respecto al fundido de la imagen */
+.intro-content > *:nth-child(1) { transition-delay: 0.7s; }
+.intro-content > *:nth-child(2) { transition-delay: 0.95s; }
+.intro-content > *:nth-child(3) { transition-delay: 1.2s; }
+.intro-content > *:nth-child(4) { transition-delay: 1.45s; }
 
 .chapter-num {
   display: block;

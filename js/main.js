@@ -32,36 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
     chapters.forEach((chapter) => chapter.classList.add("is-visible"));
   }
 
-  /* ----- Profundidad suave en las fotos al hacer scroll ----- */
+  /* ----- Scroll: profundidad (parallax), progreso y cabecera, en un único bucle ----- */
   const parallaxEls = Array.from(document.querySelectorAll("[data-parallax]"));
+  const progressBar = document.getElementById("scrollProgress");
+  const siteHeader = document.querySelector(".site-header");
+
+  // Parallax más marcado en escritorio; algo más contenido en móviles estrechos
+  // para garantizar que la foto siga cubriendo el encuadre sin tirones.
+  const isNarrowViewport = window.matchMedia("(max-width: 480px)").matches;
+  const PARALLAX_STRENGTH = isNarrowViewport ? 55 : 85;
+
+  let lastScrollY = window.scrollY;
+  let headerHidden = false;
   let ticking = false;
 
   function updateParallax() {
+    if (reduceMotion || !parallaxEls.length) return;
     const viewportH = window.innerHeight;
     parallaxEls.forEach((el) => {
       const rect = el.parentElement.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > viewportH) return;
       const progress = (rect.top) / viewportH; // ~1 al entrar, ~-1 al salir
-      const shift = progress * 42;
+      const shift = progress * PARALLAX_STRENGTH;
       el.style.transform = `translate3d(0, ${shift}px, 0)`;
     });
-    ticking = false;
   }
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
-
-  if (!reduceMotion && parallaxEls.length) {
-    window.addEventListener("scroll", onScroll, { passive: true });
-    updateParallax();
-  }
-
-  /* ----- Barra de progreso de lectura ----- */
-  const progressBar = document.getElementById("scrollProgress");
 
   function updateProgress() {
     if (!progressBar) return;
@@ -71,8 +66,38 @@ document.addEventListener("DOMContentLoaded", () => {
     progressBar.style.width = pct + "%";
   }
 
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  updateProgress();
+  function updateHeaderVisibility(currentY) {
+    if (!siteHeader) return;
+    const delta = currentY - lastScrollY;
+    const pastThreshold = currentY > 120;
+
+    if (pastThreshold && delta > 4 && !headerHidden) {
+      siteHeader.classList.add("is-hidden-nav");
+      headerHidden = true;
+    } else if ((!pastThreshold || delta < -4) && headerHidden) {
+      siteHeader.classList.remove("is-hidden-nav");
+      headerHidden = false;
+    }
+  }
+
+  function handleScrollFrame() {
+    const currentY = window.scrollY;
+    updateParallax();
+    updateProgress();
+    updateHeaderVisibility(currentY);
+    lastScrollY = currentY;
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScrollFrame);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  handleScrollFrame();
 
   /* ----- Botón de reserva fijo: aparece tras la portada ----- */
   const reserveFab = document.getElementById("reserveFab");
