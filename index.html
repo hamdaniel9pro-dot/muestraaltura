@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altura — Restaurante en azotea, Valencia</title>
+<meta name="description" content="Altura. Restaurante en una azotea de Valencia. Sitio web de muestra.">
+<meta name="theme-color" content="#0b0a08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.85em' font-size='84' text-anchor='middle' x='50'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- Aviso de web de muestra / Demo site notice -->
+<div class="demo-banner" id="demoBanner">
+  <p data-i18n="notice.banner">Este es un sitio web de muestra. «Altura» es un restaurante ficticio creado únicamente con fines de demostración. Las fotografías son de archivo, libres de derechos.</p>
+  <button type="button" class="demo-banner-close" id="demoBannerClose" aria-label="Cerrar aviso">&times;</button>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#inicio" class="brand">
+    <span class="brand-mark">&#10022;</span>
+    <span class="brand-name">ALTURA</span>
+  </a>
+
+  <div class="lang-switch" role="group" aria-label="Selector de idioma">
+    <button type="button" class="lang-btn active" data-lang="es">ES</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+  </div>
+</header>
+
+<!-- PROGRESO DE LECTURA -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- RESERVA FIJA / FIXED RESERVE BUTTON -->
+<a href="#reservas" class="reserve-fab" id="reserveFab" data-i18n="fab.reserve">Reservar mesa</a>
+
+<main>
+
+  <!-- CAPÍTULO 00 — PORTADA -->
+  <section class="chapter chapter-intro" id="inicio">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/la-noche.jpg" alt="Vista nocturna de la azotea de Altura sobre Valencia" loading="eager">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content intro-content">
+      <p class="intro-eyebrow" data-i18n="intro.eyebrow">Valencia, en una azotea</p>
+      <h1 class="intro-title">Altura</h1>
+      <p class="intro-subtitle" data-i18n="intro.subtitle">Un recorrido, seis capítulos, una sola mesa esperándote arriba.</p>
+      <span class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-line"></span>
+        <span class="scroll-cue-text" data-i18n="intro.scroll">Desplázate</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 01 — LA LLEGADA -->
+  <section class="chapter" id="llegada">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/llegada.jpg" alt="Fachada iluminada al atardecer, llegada a Altura" loading="lazy">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <span class="chapter-num">01</span>
+      <p class="chapter-eyebrow" data-i18n="ch1.eyebrow">Capítulo uno</p>
+      <h2 data-i18n="ch1.title">La llegada</h2>
+      <p class="chapter-phrase" data-i18n="ch1.phrase">Un ascensor, una puerta, y Valencia se queda abajo.</p>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 02 — EL LOCAL -->
+  <section class="chapter" id="el-local">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/el-local.jpg" alt="Interior del bar de Altura con luz cálida" loading="lazy">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <span class="chapter-num">02</span>
+      <p class="chapter-eyebrow" data-i18n="ch2.eyebrow">Capítulo dos</p>
+      <h2 data-i18n="ch2.title">El local</h2>
+      <p class="chapter-phrase" data-i18n="ch2.phrase">Piedra, latón y luz cálida. Un lugar pensado para quedarse.</p>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 03 — LA TERRAZA -->
+  <section class="chapter" id="la-terraza">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/la-terraza.jpg" alt="Terraza de Altura con vistas al Mediterráneo al atardecer" loading="lazy">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <span class="chapter-num">03</span>
+      <p class="chapter-eyebrow" data-i18n="ch3.eyebrow">Capítulo tres</p>
+      <h2 data-i18n="ch3.title">La terraza</h2>
+      <p class="chapter-phrase" data-i18n="ch3.phrase">El Mediterráneo al fondo, la ciudad a los pies.</p>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 04 — LA SALA -->
+  <section class="chapter" id="la-sala">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/la-sala.jpg" alt="Sala interior de Altura en penumbra" loading="lazy">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <span class="chapter-num">04</span>
+      <p class="chapter-eyebrow" data-i18n="ch4.eyebrow">Capítulo cuatro</p>
+      <h2 data-i18n="ch4.title">La sala</h2>
+      <p class="chapter-phrase" data-i18n="ch4.phrase">Mesas en penumbra, servicio en silencio, sabor en primer plano.</p>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 05 — LA CARTA -->
+  <section class="chapter chapter-menu" id="la-carta">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/la-carta.jpg" alt="Plato de autor de Altura sobre fondo oscuro" loading="lazy">
+    </div>
+    <div class="chapter-scrim chapter-scrim-strong"></div>
+    <div class="chapter-content menu-content">
+      <span class="chapter-num">05</span>
+      <p class="chapter-eyebrow" data-i18n="ch5.eyebrow">Capítulo cinco</p>
+      <h2 data-i18n="ch5.title">La carta</h2>
+      <p class="chapter-phrase" data-i18n="ch5.phrase">Producto de mercado, técnica contenida, raciones para compartir.</p>
+
+      <div class="menu-list">
+        <div class="menu-group">
+          <h3 data-i18n="menu.share">Para compartir</h3>
+          <ul>
+            <li><span data-i18n="menu.d1">Tomate de temporada, ventresca y ajoblanco</span><i></i><b>14&nbsp;€</b></li>
+            <li><span data-i18n="menu.d2">Gamba roja de Denia a la brasa (3 uds.)</span><i></i><b>24&nbsp;€</b></li>
+            <li><span data-i18n="menu.d3">Croquetas de jamón ibérico (6 uds.)</span><i></i><b>12&nbsp;€</b></li>
+            <li><span data-i18n="menu.d4">Steak tartar cortado a cuchillo</span><i></i><b>18&nbsp;€</b></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3 data-i18n="menu.mains">Principales</h3>
+          <ul>
+            <li><span data-i18n="menu.d5">Arroz de senia con gamba y alcachofa</span><i></i><b>26&nbsp;€</b></li>
+            <li><span data-i18n="menu.d6">Lubina salvaje, beurre blanc de cítricos</span><i></i><b>28&nbsp;€</b></li>
+            <li><span data-i18n="menu.d7">Presa ibérica a la brasa, puré trufado</span><i></i><b>25&nbsp;€</b></li>
+            <li><span data-i18n="menu.d8">Risotto de setas y parmesano 24 meses</span><i></i><b>20&nbsp;€</b></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3 data-i18n="menu.desserts">Postres</h3>
+          <ul>
+            <li><span data-i18n="menu.d9">Torrija caramelizada, helado de canela</span><i></i><b>9&nbsp;€</b></li>
+            <li><span data-i18n="menu.d10">Coulant de chocolate 70%, helado de vainilla</span><i></i><b>9&nbsp;€</b></li>
+            <li><span data-i18n="menu.d11">Cítricos, yogur y aceite de oliva</span><i></i><b>8&nbsp;€</b></li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3 data-i18n="menu.drinks">Para beber</h3>
+          <ul>
+            <li><span data-i18n="menu.d12">Copa de cava brut nature</span><i></i><b>7&nbsp;€</b></li>
+            <li><span data-i18n="menu.d13">Vino de la casa (copa)</span><i></i><b>6&nbsp;€</b></li>
+            <li><span data-i18n="menu.d14">Cóctel de autor Altura</span><i></i><b>13&nbsp;€</b></li>
+            <li><span data-i18n="menu.d15">Agua mineral</span><i></i><b>3&nbsp;€</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="menu-note" data-i18n="menu.note">* Carta, platos y precios de ejemplo, pensados para mostrar el diseño.</p>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 06 — LA NOCHE -->
+  <section class="chapter" id="la-noche">
+    <div class="chapter-bg" data-parallax>
+      <img src="images/altura/la-noche.jpg" alt="Azotea de Altura de noche con la ciudad iluminada" loading="lazy">
+    </div>
+    <div class="chapter-scrim"></div>
+    <div class="chapter-content">
+      <span class="chapter-num">06</span>
+      <p class="chapter-eyebrow" data-i18n="ch6.eyebrow">Capítulo seis</p>
+      <h2 data-i18n="ch6.title">La noche</h2>
+      <p class="chapter-phrase" data-i18n="ch6.phrase">Cuando se encienden las luces de Valencia, Altura apenas empieza.</p>
+      <a href="#reservas" class="btn btn-outline" data-i18n="ch6.cta">Reservar mesa</a>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section class="section section-reserve" id="reservas">
+    <div class="container">
+      <p class="section-eyebrow" data-i18n="reserve.eyebrow">Te esperamos arriba</p>
+      <h2 class="section-title" data-i18n="reserve.title">Reserva tu mesa</h2>
+      <p class="section-lead" data-i18n="reserve.lead">Completa el formulario y confirmaremos tu reserva lo antes posible.</p>
+
+      <div class="reserve-wrap">
+        <form id="reservationForm" class="reserve-form" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resName" data-i18n="reserve.label.name">Nombre completo</label>
+              <input type="text" id="resName" name="name" required autocomplete="name">
+              <span class="field-error" data-i18n="reserve.error.name">Por favor indica tu nombre.</span>
+            </div>
+            <div class="form-group">
+              <label for="resEmail" data-i18n="reserve.label.email">Correo electrónico</label>
+              <input type="email" id="resEmail" name="email" required autocomplete="email">
+              <span class="field-error" data-i18n="reserve.error.email">Introduce un correo electrónico válido.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resPhone" data-i18n="reserve.label.phone">Teléfono</label>
+              <input type="tel" id="resPhone" name="phone" required autocomplete="tel">
+              <span class="field-error" data-i18n="reserve.error.phone">Introduce un teléfono de contacto.</span>
+            </div>
+            <div class="form-group">
+              <label for="resGuests" data-i18n="reserve.label.guests">Número de comensales</label>
+              <select id="resGuests" name="guests" required>
+                <option value="" data-i18n="reserve.guests.placeholder">Selecciona...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7+" data-i18n="reserve.guests.more">Más de 6</option>
+              </select>
+              <span class="field-error" data-i18n="reserve.error.guests">Indica el número de comensales.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resDate" data-i18n="reserve.label.date">Fecha</label>
+              <input type="date" id="resDate" name="date" required>
+              <span class="field-error" data-i18n="reserve.error.date">Selecciona una fecha válida.</span>
+            </div>
+            <div class="form-group">
+              <label for="resTime" data-i18n="reserve.label.time">Hora</label>
+              <select id="resTime" name="time" required disabled>
+                <option value="" data-i18n="reserve.time.choose_date_first">Elige primero una fecha</option>
+              </select>
+              <span class="field-error" data-i18n="reserve.error.time">Selecciona una hora.</span>
+            </div>
+          </div>
+
+          <p class="schedule-hint" data-i18n="reserve.schedule_hint">Comidas: viernes, sábado y domingo. Cenas: martes a sábado. Cerramos los lunes.</p>
+
+          <div class="form-group">
+            <label for="resNotes" data-i18n="reserve.label.notes">Peticiones especiales (opcional)</label>
+            <textarea id="resNotes" name="notes" rows="3" data-i18n-placeholder="reserve.notes.placeholder" placeholder="Alergias, celebraciones, preferencias de mesa..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="reserve.submit">Confirmar reserva</button>
+        </form>
+
+        <div class="reserve-confirmation" id="reserveConfirmation" hidden>
+          <div class="confirmation-icon">&#10003;</div>
+          <h3 data-i18n="reserve.confirm.title">Reserva recibida</h3>
+          <p data-i18n="reserve.confirm.text">Gracias por tu reserva. Te enviaremos la confirmación por correo electrónico en breve.</p>
+          <dl class="confirmation-summary" id="confirmationSummary"></dl>
+          <button type="button" class="btn btn-ghost" id="newReservationBtn" data-i18n="reserve.confirm.new">Hacer otra reserva</button>
+        </div>
+      </div>
+
+      <div class="hours-block">
+        <h3 data-i18n="hours.title">Horarios</h3>
+        <table class="hours-table">
+          <tbody>
+            <tr><th data-i18n="hours.mon">Lunes</th><td data-i18n="hours.closed">Cerrado</td></tr>
+            <tr><th data-i18n="hours.tue_thu">Martes a Jueves</th><td data-i18n="hours.tue_thu_time">20:00 &ndash; 23:30</td></tr>
+            <tr><th data-i18n="hours.fri_sat">Viernes y Sábado</th><td data-i18n="hours.fri_sat_time">13:30 &ndash; 16:00 / 20:00 &ndash; 00:00</td></tr>
+            <tr><th data-i18n="hours.sun">Domingo</th><td data-i18n="hours.sun_time">13:30 &ndash; 17:00</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-note" data-i18n="hours.note">Horarios de ejemplo. Última entrada 30 minutos antes del cierre de cocina.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">
+      <span class="brand-mark">&#10022;</span>
+      <span class="brand-name">ALTURA</span>
+    </div>
+    <p data-i18n="footer.address">Carrer de l'Exemple, 24 (última planta), 46004 Valencia — dirección de ejemplo</p>
+    <p data-i18n="footer.contact">+34 900 000 000 · reservas@altura-ejemplo.com — datos de ejemplo</p>
+    <p class="footer-demo" data-i18n="footer.demo_notice">Este sitio es una demostración de diseño web. Altura es un restaurante ficticio; ninguna información de contacto, dirección o reserva es real. Fotografías de archivo, libres de derechos.</p>
+    <p class="footer-copy">&copy; <span id="currentYear"></span> Altura — <span data-i18n="footer.sample">sitio de muestra</span>.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
